@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 //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
 var sendgrid  = require('sendgrid').SendGrid('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');
+var helper = require('sendgrid').mail;
 
 var app = express();
 
@@ -32,65 +33,81 @@ app.use(express.static(path.join(__dirname, 'public')));
 //for sendgrid intergration
 // using SendGrid's Node.js Library
 app.post('/contactus',function(req,res,next){
-  console.log(req.body);
-  //Email construction for brookhaven
-  var a = parseInt(req.body.checkHuman_a);
-  var b = parseInt(req.body.checkHuman_b);
-  var c = parseInt(req.body.senderHuman);
-  console.log(a + ' + '+b+ ' == '+c);
-  if(a+b !== c){
-    console.log("Captcha check failed");
-    res.satus = 500;
-    res.send("Not human ?");
-  }else{
-    var email     = new sendgrid.Email({
-      to:       'themegamechn@gmail.com',
-      toname : 'Megamech',
-      from:     req.body.email,
-      fromname: req.body.name,
-      subject:  'Contact Us Mail',
-      replyto : req.body.email,
-      text:     'Message from '+ req.body.name+' < '+req.body.email+ ' > '
-      + ' : ' + req.body.message,
-      html: '<h3> Message from ' + req.body.name + ' < '+req.body.email+ ' > '
-      + ' : </h3> <br><h2>'+req.body.message+ '</h2>'
-    });
-    //sending email to brookhaven
-    sendgrid.send(email, function(err, json) {
-      if (err) { console.log(err);
-        res.status = 500;
-        res.send('There was some problem. Please try again later.');
-      }else{
-        console.log(json);
-        //if succesfully sent the mail , send an email to the user
-        //mail construction for user
-        var email     = new sendgrid.Email({
-          to:       req.body.email,
-          toname : req.body.name,
-          from:     'themegamech@gmail.com',
-          fromname: 'BrookHaven',
-          subject:  'Contact Us from Megamech',
-          replyto : 'themegamech@gmail.com',
-          text:     'Thank You for contacting us. We will get back to you shortly.',
-          html: '<h1> Thank You for contacting us. We will get back to you shortly.</h1> '
-        });
-
-
-
-        //send mail to user
-        sendgrid.send(email, function(err, json) {
-          if (err) { console.log(err);
-            res.status = 500;
-            res.send('There was some problem. Please try again later.');
-          }else{
-            //if succesfull , send success message
-            console.log(json);
-            res.send({'status' : 'success'});
+  console.log(req.body.email + req.body.name+req.body.message);
+  var requestBody = {
+    "personalizations" : [
+      {
+        "to" : [
+          {
+            "email" : "themegamech@gmail.com",
+            "name" : "Megamech"
           }
-        });
+        ]
+      },
+    ],
+    "from" : {
+      "name" : req.body.name,
+      "email" : req.body.email
+    },
+    "reply_to": {
+      "name" : req.body.name,
+      "email" : req.body.email
+    },
+    "subject" : "Contact Us Mail",
+    "content" : [
+      {
+        "type" : "text/plain",
+        "value" : 'Message from '+ req.body.name+' < '+req.body.email+ ' > ' + ' : ' + req.body.message
       }
+    ]
+  };
+  var request = sendgrid.emptyRequest();
+  request.method = 'POST';
+  request.path = '/v3/mail/send';
+  request.body = requestBody;
+  sendgrid.API(request, function (response) {
+    console.log(response.statusCode);
+    console.log(response.body);
+    console.log(response.headers);
+    var requestBody = {
+      "personalizations" : [
+        {
+          "to" : [
+            {
+              "email" : req.body.email,
+              "name" : req.body.name
+            }
+          ]
+        },
+      ],
+      "from" : {
+        "name" : "Megamech",
+        "email" : "themegamech@gmail.com"
+      },
+      "reply_to": {
+        "name" : "Megamech",
+        "email" : "megamech@gmail.com"
+      },
+      "subject" : "Contact Us Mail from Megamech",
+      "content" : [
+        {
+          "type" : "text/plain",
+          "value" : "Thank You for connecting with us. We will get back to you shortly."
+        }
+      ]
+    };
+    var request = sendgrid.emptyRequest();
+    request.method = 'POST';
+    request.path = '/v3/mail/send';
+    request.body = requestBody;
+    sendgrid.API(request, function (response) {
+      console.log(response.statusCode);
+      console.log(response.body);
+      console.log(response.headers);
+      res.status=200;
+      res.send("Done");
     });
-  }
+  });
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
