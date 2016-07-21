@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
-var sendgrid  = require('sendgrid')('');
+var sendgrid  = require('sendgrid');
 
 var app = express();
 
