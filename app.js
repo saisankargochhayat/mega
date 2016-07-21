@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
-
+var sendgrid  = require('sendgrid')('');
 
 var app = express();
 
@@ -30,8 +30,67 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //for sendgrid intergration
 // using SendGrid's Node.js Library
+app.post('/contactus',function(req,res,next){
+  console.log(req.body);
+  //Email construction for brookhaven
+  var a = parseInt(req.body.checkHuman_a);
+  var b = parseInt(req.body.checkHuman_b);
+  var c = parseInt(req.body.senderHuman);
+  console.log(a + ' + '+b+ ' == '+c);
+  if(a+b !== c){
+    console.log("Captcha check failed");
+    res.satus = 500;
+    res.send("Not human ?");
+  }else{
+    var email     = new sendgrid.Email({
+      to:       'themegamechn@gmail.com',
+      toname : 'Megamech',
+      from:     req.body.email,
+      fromname: req.body.name,
+      subject:  'Contact Us Mail',
+      replyto : req.body.email,
+      text:     'Message from '+ req.body.name+' < '+req.body.email+ ' > '
+      + ' : ' + req.body.message,
+      html: '<h3> Message from ' + req.body.name + ' < '+req.body.email+ ' > '
+      + ' : </h3> <br><h2>'+req.body.message+ '</h2>'
+    });
+    //sending email to brookhaven
+    sendgrid.send(email, function(err, json) {
+      if (err) { console.log(err);
+        res.status = 500;
+        res.send('There was some problem. Please try again later.');
+      }else{
+        console.log(json);
+        //if succesfully sent the mail , send an email to the user
+        //mail construction for user
+        var email     = new sendgrid.Email({
+          to:       req.body.email,
+          toname : req.body.name,
+          from:     'themegamech@gmail.com',
+          fromname: 'BrookHaven',
+          subject:  'Contact Us from Megamech',
+          replyto : 'themegamech@gmail.com',
+          text:     'Thank You for contacting us. We will get back to you shortly.',
+          html: '<h1> Thank You for contacting us. We will get back to you shortly.</h1> '
+        });
 
 
+
+        //send mail to user
+        sendgrid.send(email, function(err, json) {
+          if (err) { console.log(err);
+            res.status = 500;
+            res.send('There was some problem. Please try again later.');
+          }else{
+            //if succesfull , send success message
+            console.log(json);
+            res.send({'status' : 'success'});
+          }
+        });
+      }
+    });
+  }
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.redirect('/404.html')
