@@ -1,43 +1,44 @@
 (function($) {
-	
+
 	"use strict";
-	
-	
+
+
 	//Hide Loading Box (Preloader)
 	function handlePreloader() {
 		if($('.preloader').length){
 			$('.preloader').delay(500).fadeOut(500);
 		}
 	}
-	
-	
+
+
 	//Update Header Style + Scroll to Top
 	function headerStyle() {
-		if($('.main-header').length){
-			var topHeader = $('.header-top').innerHeight();
-			var windowpos = $(window).scrollTop();
-			if (windowpos >= topHeader) {
-				$('.main-header').addClass('fixed-top-header');
-				$('.scroll-to-top').fadeIn(300);
-			} else {
-				$('.main-header').removeClass('fixed-top-header');
-				$('.scroll-to-top').fadeOut(300);
-			}
-		}
+		// if($('.main-header').length){
+		// 	var topHeader = $('.header-top').innerHeight();
+		// 	var windowpos = $(window).scrollTop();
+		// 	if (windowpos >= topHeader) {
+		// 		$('.main-header').addClass('fixed-top-header');
+		// 		$('.scroll-to-top').fadeIn(300);
+		// 	} else {
+		// 		$('.main-header').removeClass('fixed-top-header');
+		// 		$('.scroll-to-top').fadeOut(300);
+		// 	}
+		// }
+		$('.main-header').addClass('fixed-top-header');
 	}
-	
-	
+
+
 	//Submenu Dropdown Toggle
 	if($('.main-header li.dropdown .submenu').length){
 		$('.main-header li.dropdown').append('<div class="dropdown-btn"></div>');
-		
+
 		//Dropdown Button
 		$('.main-header li.dropdown .dropdown-btn').on('click', function() {
 			$(this).prev('.submenu').slideToggle(500);
 		});
 	}
-	
-	
+
+
 	//Main Slider
 	if($('.main-slider').length){
 
@@ -46,65 +47,65 @@
 		  startwidth:1200,
 		  startheight:620,
 		  hideThumbs:600,
-	
+
 		  thumbWidth:80,
 		  thumbHeight:50,
 		  thumbAmount:5,
-	
+
 		  navigationType:"bullet",
 		  navigationArrows:"1",
 		  navigationStyle:"preview4",
-	
+
 		  touchenabled:"on",
 		  onHoverStop:"off",
-	
+
 		  swipe_velocity: 0.7,
 		  swipe_min_touches: 1,
 		  swipe_max_touches: 1,
 		  drag_block_vertical: false,
-	
+
 		  parallax:"mouse",
 		  parallaxBgFreeze:"on",
 		  parallaxLevels:[7,4,3,2,5,4,3,2,1,0],
-	
+
 		  keyboardNavigation:"on",
-	
+
 		  navigationHAlign:"center",
 		  navigationVAlign:"bottom",
 		  navigationHOffset:0,
 		  navigationVOffset:20,
-	
+
 		  soloArrowLeftHalign:"left",
 		  soloArrowLeftValign:"center",
 		  soloArrowLeftHOffset:20,
 		  soloArrowLeftVOffset:0,
-	
+
 		  soloArrowRightHalign:"right",
 		  soloArrowRightValign:"center",
 		  soloArrowRightHOffset:20,
 		  soloArrowRightVOffset:0,
-	
+
 		  shadow:0,
 		  fullWidth:"on",
 		  fullScreen:"off",
-	
+
 		  spinner:"spinner4",
-	
+
 		  stopLoop:"off",
 		  stopAfterLoops:-1,
 		  stopAtSlide:-1,
-	
+
 		  shuffle:"off",
-	
+
 		  autoHeight:"off",
 		  forceFullWidth:"on",
-	
+
 		  hideThumbsOnMobile:"on",
 		  hideNavDelayOnMobile:1500,
 		  hideBulletsOnMobile:"on",
 		  hideArrowsOnMobile:"on",
 		  hideThumbsUnderResolution:0,
-	
+
 		  hideSliderAtLimit:0,
 		  hideCaptionAtLimit:0,
 		  hideAllCaptionAtLilmit:0,
@@ -113,10 +114,10 @@
 		  fullScreenOffsetContainer: ".main-slider"
 	  });
 
-		
+
 	}
-	
-	
+
+
 	//Tabs Box
 	if($('.tabs-box').length){
 		$('.tabs-box .tab-btn').on('click', function(e) {
@@ -135,10 +136,10 @@
 				 }, 1000);
 			}
 		});
-		
+
 	}
-	
-	
+
+
 	//Four Column Slider
 	if ($('.column-carousel.four-column').length) {
 		$('.column-carousel.four-column').owlCarousel({
@@ -165,10 +166,10 @@
 					items:4
 				}
 			}
-		});    		
+		});
 	}
-	
-	
+
+
 	//Three Column Slider
 	if ($('.column-carousel.three-column').length) {
 		$('.column-carousel.three-column').owlCarousel({
@@ -195,9 +196,9 @@
 					items:3
 				}
 			}
-		});    		
+		});
 	}
-	
+
 	//Two Column Slider
 	if ($('.column-carousel.two-column').length) {
 		$('.column-carousel.two-column').owlCarousel({
@@ -224,11 +225,11 @@
 					items:2
 				}
 			}
-		});    		
+		});
 	}
-	
-	
-	
+
+
+
 	//Sponsors Slider
 	if ($('.sponsors .slider').length) {
 		$('.sponsors .slider').owlCarousel({
@@ -253,16 +254,16 @@
 					items:5
 				}
 			}
-		});    		
+		});
 	}
-	
-	
+
+
 	//LightBox / Fancybox
 	if($('.lightbox-image').length) {
 		$('.lightbox-image').fancybox();
 	}
-	
-	
+
+
 	//Vertical Gallery Slider
 	if ($('.vertical-gallery').length) {
 		var slider = new MasterSlider();
@@ -275,19 +276,19 @@
 			view:'basic',
 			dir:'h'
 		});
-		slider.control('arrows');	
-		slider.control('scrollbar' , {dir:'h'});	
+		slider.control('arrows');
+		slider.control('scrollbar' , {dir:'h'});
 		slider.control('circletimer' , {color:"#FFFFFF" , stroke:9});
-		slider.control('thumblist' , {autohide:false ,dir:'v'});  		
+		slider.control('thumblist' , {autohide:false ,dir:'v'});
 	}
-	
-	
+
+
 	//Filters Section / Mixitup
 	if($('.filter-list').length){
 		$('.filter-list').mixitup({});
 	}
-	
-	
+
+
 	//Contact Form Validation
 	if($('#contact-form').length){
 		$('#contact-form').validate({
@@ -308,8 +309,8 @@
 			}
 		});
 	}
-	
-	
+
+
 	// Google Map Settings
 	if($('#map-location').length){
 		var map;
@@ -321,7 +322,7 @@
 			lat: -37.817085,
 			lng: 144.955631
 		  });
-		  
+
 		  //Add map Marker
 		  map.addMarker({
 			lat: -37.817085,
@@ -329,11 +330,11 @@
 			infoWindow: {
 			  content: '<p style="text-align:center;"><strong>Envato</strong><br>Melbourne VIC 3000, Australia</p>'
 			}
-		 
+
 		});
 	}
-	
-	
+
+
 	// Scroll to top
 	if($('.scroll-to-top').length){
 		$(".scroll-to-top").on('click', function() {
@@ -341,11 +342,11 @@
 		   $('html, body').animate({
 			   scrollTop: $('html, body').offset().top
 			 }, 1000);
-	
+
 		});
 	}
-	
-	
+
+
 	// Elements Animation
 	if($('.wow').length){
 		var wow = new WOW(
@@ -363,7 +364,7 @@
 /* ==========================================================================
    When document is ready, do
    ========================================================================== */
-   
+
 	$(document).on('ready', function() {
 		headerStyle();
 	});
@@ -371,18 +372,18 @@
 /* ==========================================================================
    When document is Scrollig, do
    ========================================================================== */
-	
+
 	$(window).on('scroll', function() {
 		headerStyle();
 	});
-	
+
 /* ==========================================================================
    When document is loading, do
    ========================================================================== */
-	
+
 	$(window).on('load', function() {
 		handlePreloader();
 	});
-	
+
 
 })(window.jQuery);
