@@ -6,7 +6,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
-var sendgrid  = require('sendgrid');
+//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
+var sendgrid  = require('sendgrid').SendGrid('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');
 
 var app = express();
 
