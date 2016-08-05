@@ -1276,9 +1276,9 @@
 
 		jQuery('#google-map').gMap({
 
-			address: 'Melbourne, Australia',
+			address: 'Bhubaneswar, India',
 			maptype: 'ROADMAP',
-			zoom: 14,
+			zoom: 13,
 			markers: [
 				{
 					address: "Melbourne, Australia",
@@ -1301,6 +1301,34 @@
 			}
 
 		});
+		var getlocation = function(){
+			if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(showPosition);
+				} else {
+						x.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			function showPosition(position){
+				console.log(position.coords);
+				var geocoder = new google.maps.Geocoder;
+				var infowindow = new google.maps.InfoWindow;
+				var location = {
+					lat : position.coords.latitude,
+					lng : position.coords.longitude
+				};
+				geocoder.geocode({'location' : location},function(results,status){
+					if(status==='OK'){
+						if(results[1]){
+							console.log(results[0].formatted_address);
+						}else{
+							console.log("Location Not found");
+						}
+					}else{
+						console.log("Geocoder failed due to " + status);
+					}
+				});
+			}
+		}
+		getlocation();
 	</script>
 
 </body>
