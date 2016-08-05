@@ -53,11 +53,12 @@ app.post('/contactus',function(req,res,next){
       "name" : req.body.name,
       "email" : req.body.email
     },
-    "subject" : "Contact Us Mail",
+    "subject" : "Contact Us Mail " + req.body.subject,
     "content" : [
       {
         "type" : "text/plain",
-        "value" : 'Message from '+ req.body.name+' < '+req.body.email+ ' > ' + ' : ' + req.body.message
+        "value" : 'Message from '+ req.body.name+' < '+req.body.email+ ' > ' + " Phone : " + req.body.phone
+        +' : ' + req.body.message
       }
     ]
   };
@@ -105,7 +106,7 @@ app.post('/contactus',function(req,res,next){
       console.log(response.body);
       console.log(response.headers);
       res.status=200;
-      res.send("Done");
+      res.send({msg:"Your mail has been succesfully sent"});
     });
   });
 });

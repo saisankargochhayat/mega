@@ -3155,7 +3155,7 @@ var SEMICOLON = SEMICOLON || {};
 		},
 
 		contactForm: function(){
-
+			console.log("Contact us Form");
 			if( !$().validate ) {
 				console.log('contactForm: Form Validate not Defined.');
 				return true;
@@ -3189,10 +3189,9 @@ var SEMICOLON = SEMICOLON || {};
 						} else {
 							$(form).find('.form-process').fadeIn();
 						}
-
+						console.log("Submitting form");
 						$(form).ajaxSubmit({
 							target: elementResult,
-							dataType: 'json',
 							success: function( data ) {
 								console.log(data);
 								if( elementLoader == 'button' ) {
@@ -3211,10 +3210,10 @@ var SEMICOLON = SEMICOLON || {};
 										var alertType = 'alert-success';
 									}
 
-									elementResult.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + alertType ).html( data.message ).slideDown( 400 );
+									elementResult.removeClass( 'alert-danger alert-success' ).addClass( 'alert ' + alertType ).html( data.msg ).slideDown( 400 );
 								} else {
-									elementResult.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.message ).html('');
-									SEMICOLON.widget.notifications( elementResult );
+									elementResult.attr( 'data-notify-type', data.alert ).attr( 'data-notify-msg', data.msg ).html('');
+									//SEMICOLON.widget.notifications( elementResult );
 								}
 								if( $(form).find('.g-recaptcha').children('div').length > 0 ) { grecaptcha.reset(); }
 								if( data.alert != 'error' ) { $(form).clearForm(); }
