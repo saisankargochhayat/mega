@@ -90,51 +90,58 @@
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta provident sint ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus ratione.</p>
 
-				<form id="billing-form" name="billing-form" class="nobottommargin" action="#" method="post">
+				<form id="billing-form" name="billing-form" class="nobottommargin" action="/book" method="post">
 
-					<div class="col_half">
+					<div class="col_full">
 						<label for="billing-form-name">Name:</label>
-						<input type="text" id="billing-form-name" name="billing-form-name" value="" class="sm-form-control" />
+						<input type="text" id="billing-form-name" name="name" value="" class="sm-form-control" />
 					</div>
 
-					<div class="col_half col_last">
+					<!-- <div class="col_half col_last">
 						<label for="billing-form-lname">Last Name:</label>
 						<input type="text" id="billing-form-lname" name="billing-form-lname" value="" class="sm-form-control" />
-					</div>
+					</div> -->
 
 					<div class="clear"></div>
 
-					<div class="col_full">
+					<!-- <div class="col_full">
 						<label for="billing-form-companyname">Company Name:</label>
 						<input type="text" id="billing-form-companyname" name="billing-form-companyname" value="" class="sm-form-control" />
-					</div>
+					</div> -->
 
 					<div class="col_full">
 						<label for="billing-form-address">Address:</label>
-						<input type="text" id="billing-form-address" name="billing-form-address" value="" class="sm-form-control" />
+						<input type="text" id="billing-form-address" name="location" value="" class="sm-form-control" />
 					</div>
 
-					<div class="col_full">
-						<input type="text" id="billing-form-address2" name="billing-form-adress" value="" class="sm-form-control" />
-					</div>
 
-					<div class="col_full">
+
+					<!-- <div class="col_full">
 						<label for="billing-form-city">City / Town</label>
 						<input type="text" id="billing-form-city" name="billing-form-city" value="" class="sm-form-control" />
-					</div>
+					</div> -->
 
 					<div class="col_half">
 						<label for="billing-form-email">Email Address:</label>
-						<input type="email" id="billing-form-email" name="billing-form-email" value="" class="sm-form-control" />
+						<input type="email" id="billing-form-email" name="email" value="" class="sm-form-control" />
 					</div>
 
 					<div class="col_half col_last">
 						<label for="billing-form-phone">Phone:</label>
-						<input type="text" id="billing-form-phone" name="billing-form-phone" value="" class="sm-form-control" />
+						<input type="text" id="billing-form-phone" name="phone" value="" class="sm-form-control" />
+					</div>
+					<div class="col_half">
+						<label for="billing-form-model">Vehicle Model</label>
+						<input type="text" id="billing-form-model" name="vehicle" value="" class="sm-form-control" />
 					</div>
 
+					<div class="col_half col_last">
+						<label for="billing-form-problem">Problem</label>
+						<input type="text" id="billing-form-problem" name="problem" value="" class="sm-form-control" />
+					</div>
+          <a href="#" class="button button-3d fcenter">Book Now</a>
 				</form>
-				<a href="#" class="button button-3d fright">Place Order</a>
+
 			</div>
 		</div>
 		<!-- Footer
