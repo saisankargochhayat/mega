@@ -3155,7 +3155,7 @@ var SEMICOLON = SEMICOLON || {};
 		},
 
 		contactForm: function(){
-			console.log("Contact us Form");
+		//	console.log("Contact us Form");
 			if( !$().validate ) {
 				console.log('contactForm: Form Validate not Defined.');
 				return true;
@@ -3189,7 +3189,7 @@ var SEMICOLON = SEMICOLON || {};
 						} else {
 							$(form).find('.form-process').fadeIn();
 						}
-						console.log("Submitting form");
+						//console.log("Submitting form");
 						$(form).ajaxSubmit({
 							target: elementResult,
 							success: function( data ) {
