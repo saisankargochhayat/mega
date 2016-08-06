@@ -36,7 +36,8 @@ app.post('/emergencybook',function(req,res,next){
   console.log(req.body);
   var message = "New Emergency Booking Received <br> Name : <strong>"+req.body.name
                 + " </strong> <br> Phone : <strong> "+req.body.phone+"</strong> <br>"
-                + " Email : <strong> "+ req.body.email + "</strong><br>";
+                + " Email : <strong> "+ req.body.email + "</strong><br>"
+                + " GPS generated Location :<strong>"+req.body.location+"</strong><br>";
   var requestBody = {
     "personalizations" : [
       {
@@ -76,6 +77,7 @@ app.post('/emergencybook',function(req,res,next){
                   + " <br> Name : <strong>"+req.body.name
                   + " </strong> <br> Phone : <strong> "+req.body.phone+"</strong> <br>"
                   + " Email : <strong> "+ req.body.email + "</strong><br>"
+                  + " GPS generated Location :<strong>"+req.body.location+"</strong><br>"
                   + " Your Booking has been received. <br> "
                   + " The Megamech team will reach out to you soon.";
     var requestBody = {
@@ -118,7 +120,7 @@ app.post('/book',function(req,res,next){
   var message = "New Booking Received <br> Name : <strong>"+req.body.name
                 + " </strong> <br> Phone : <strong> "+req.body.phone+"</strong> <br>"
                 + " Email : <strong> "+ req.body.email + "</strong><br>"
-                + " Vechile Model : <strong>"+req.body.vechile+"</strong><br>"
+                + " Vechile Model : <strong>"+req.body.vehicle+"</strong><br>"
                 + " Location : <strong>"+req.body.location+"</strong><br>"
                 + " Problem : <strong>"+req.body.problem;
   var requestBody = {
@@ -160,7 +162,7 @@ app.post('/book',function(req,res,next){
                   + " <br> Name : <strong>"+req.body.name
                   + " </strong> <br> Phone : <strong> "+req.body.phone+"</strong> <br>"
                   + " Email : <strong> "+ req.body.email + "</strong><br>"
-                  + " Vechile Model : <strong>"+req.body.vechile+"</strong><br>"
+                  + " Vechile Model : <strong>"+req.body.vehicle+"</strong><br>"
                   + " Location : <strong>"+req.body.location+"</strong><br>"
                   + " Problem : <strong>"+req.body.problem+"</strong><br>"
                   + " Your Booking has been received. <br> "
