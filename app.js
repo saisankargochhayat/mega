@@ -32,6 +32,87 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //for sendgrid intergration
 // using SendGrid's Node.js Library
+app.post('/emergencybook',function(req,res,next){
+  console.log(req.body);
+  var message = "New Emergency Booking Received <br> Name : <strong>"+req.body.name
+                + " </strong> <br> Phone : <strong> "+req.body.phone+"</strong> <br>"
+                + " Email : <strong> "+ req.body.email + "</strong><br>";
+  var requestBody = {
+    "personalizations" : [
+      {
+        "to" : [
+          {
+            "email" : "themegamech@gmail.com",
+            "name" : "Megamech"
+          }
+        ]
+      },
+    ],
+    "from" : {
+      "name" : req.body.name,
+      "email" : req.body.email
+    },
+    "reply_to" : {
+      "name" : req.body.name,
+      "email" : req.body.email
+    },
+    "subject" : "Emergency Booking Received !!!",
+    "content" : [
+      {
+        "type" : "text/html",
+        "value" : message
+      }
+    ]
+  };
+  var request = sendgrid.emptyRequest();
+  request.method = 'POST';
+  request.path = '/v3/mail/send';
+  request.body=requestBody;
+  sendgrid.API(request,function(response){
+    console.log(response.statusCode);
+    console.log(response.body);
+    console.log(response.headers);
+    message = "Thank You for choosing Megamech. You gave the following details to us"
+                  + " <br> Name : <strong>"+req.body.name
+                  + " </strong> <br> Phone : <strong> "+req.body.phone+"</strong> <br>"
+                  + " Email : <strong> "+ req.body.email + "</strong><br>"
+                  + " Your Booking has been received. <br> "
+                  + " The Megamech team will reach out to you soon.";
+    var requestBody = {
+      "personalizations" : [
+        {
+          "to" : [
+            {
+              "email" : req.body.email,
+              "name" : req.body.name
+            }
+          ]
+        },
+      ],
+      "from" : {
+        "name" : "Megamech",
+        "email" : "themegamech@gmail.com"
+      },
+      "reply_to" : {
+        "name" : "Megamech",
+        "email" : "themegamech@gmail.com"
+      },
+      "subject" : "Thank You for choosing Megamech",
+      "content" : [
+        {
+          "type" : "text/html",
+          "value" : message
+        }
+      ]
+    };
+    request.body=requestBody;
+    sendgrid.API(request,function(response){
+      console.log(response);
+      res.status=200;
+      res.send("Booking Succesfully Done");
+    });
+  });
+});
 app.post('/book',function(req,res,next){
   console.log(req.body);
   var message = "New Booking Received <br> Name : <strong>"+req.body.name
