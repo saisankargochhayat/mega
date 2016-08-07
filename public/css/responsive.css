@@ -1154,7 +1154,6 @@
 	.nivo-caption,
 	.flex-caption,
 	.slider-caption p,
-	.slider-caption .button,
 	.camera_caption,
 	.ei-title,
 	.slider-arrow-top-sm,
@@ -1851,4 +1850,3 @@ only screen and (                min-resolution: 2dppx) and (max-width: 991px) {
 	#logo a.standard-logo { display: none; }
 	#logo a.retina-logo { display: inline-block; }
 }
-

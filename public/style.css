@@ -13525,3 +13525,9 @@ body:not(.no-transition) #wrapper,
 	padding:0!important
 }
 
+@media screen and (max-width: 480px){
+    #butres {
+      width:60%;
+			font-size:50%;
+		}
+}
