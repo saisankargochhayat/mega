@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
 	<link rel="stylesheet" href="css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,7 +48,6 @@
 								<div class="slider-caption slider-caption-center">
 									<h2 data-caption-animate="fadeInUp">Welcome to Megamech</h2>
 									<p data-caption-animate="fadeInUp" data-caption-delay="200">Create just what you need for your Perfect Website. Choose from a wide range of Elements &amp; simply put them on our Canvas.</p>
-									<br><button class="button button-3d nomargin" id="butres" style="padding-left:10px;padding-right:10px">Emergency Booking</button>
 								</div>
 							</div>
 						</div>
@@ -120,12 +120,13 @@
 
 						<!-- Top Search
 						============================================= -->
-						<div id="top-search">
+						<!-- <div id="top-search">
 							<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
 							<form action="search.html" method="get">
 								<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
 							</form>
-						</div><!-- #top-search end -->
+						</div> -->
+						<!-- #top-search end -->
 
 					</nav><!-- #primary-menu end -->
 
@@ -1258,9 +1259,37 @@
 
 	</div><!-- #wrapper end -->
 
+	<!-- Emergency Section
+	============================================ -->
+	<div id="cd-nav">
+		<a href="#emergency" class="cd-nav-trigger"><h5 style="color:#fff;text-align:center;padding-top:10px;">EMERGENCY BOOKING</h5></a>
+
+		<nav id="cd-main-nav">
+			<form id="template-contactform" name="template-contactform" action="/contactus" method="post">
+				<ul>
+					<li style="padding:20px 20px 10px 20px">
+						<input type="text" id="template-contactform-name" placeholder="Name" name="name" value="" class="sm-form-control required" />
+					</li>
+
+					<li style="padding:10px 20px 10px 20px">
+						<input type="email" id="template-contactform-email" placeholder="Email" name="email" value="" class="required email sm-form-control" />
+					</li>
+
+					<li style="padding:10px 20px 20px 20px">
+						<input type="tel" id="template-contactform-phone" placeholder="Phone" name="phone" value="" class="required sm-form-control" />
+					</li>
+
+					<div style="text-align:center;padding-bottom:20px">
+						<button class="btn btn-primary" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Submit</button>
+					</div>
+				</ul>
+			</form>
+		</nav>
+	</div>
+
 	<!-- Go To Top
 	============================================= -->
-	<div id="gotoTop" class="icon-angle-up"></div>
+	<!-- <div id="gotoTop" class="icon-angle-up"></div> -->
 
 	<!-- External JavaScripts
 	============================================= -->
@@ -1331,6 +1360,7 @@
 		}
 		getlocation();
 	</script>
+	<script type="text/javascript" src="js/main.js"></script> <!-- Resource jQuery -->
 
 </body>
 </html>
