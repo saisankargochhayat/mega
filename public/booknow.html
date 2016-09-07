@@ -24,7 +24,7 @@
 
 	<!-- Document Title
 	============================================= -->
-	<title>Home - One Page Layout | Canvas</title>
+	<title>Booking | Megamech</title>
 
 </head>
 
@@ -45,8 +45,8 @@
 					<!-- Logo
 					============================================= -->
 					<div id="logo">
-						<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
-						<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+						<a href="../" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
+						<a href="../" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation
@@ -54,26 +54,17 @@
 					<nav id="primary-menu">
 
 						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1500">
-							<li><a href="#" data-href="#home"><div>Home</div></a></li>
+							<li><a href="../"><div>Back</div></a></li>
 							<!--<li><a href="#" data-href="#section-about"><div>About</div></a></li>-->
-							<li><a href="booknow.html"><div>Book Now</div></a></li>
+							<!-- <li><a href="booknow.html"><div>Book Now</div></a></li> -->
 							<!--<li><a href="#" data-href="#section-work"><div>Work</div></a></li>-->
 							<!--<li><a href="#" data-href="#section-team"><div>Team</div></a></li>-->
-							<li><a href="#" data-href="#section-services"><div>Services</div></a></li>
-							<li><a href="#" data-href="#section-pricing"><div>Pricing</div></a></li>
-							<li><a href="blog.html"><div>Blog</div></a></li>
-							<li><a href="#" data-href="#section-testimonials" data-offset="60"><div>Testimonials</div></a></li>
-							<li><a href="#" data-href="#section-contact"><div>Contact</div></a></li>
+							<!-- <li><a href="#" data-href="#section-services"><div>Services</div></a></li> -->
+							<!-- <li><a href="#" data-href="#section-pricing"><div>Pricing</div></a></li> -->
+							<!-- <li><a href="blog.html"><div>Blog</div></a></li> -->
+							<!-- <li><a href="#" data-href="#section-testimonials" data-offset="60"><div>Testimonials</div></a></li> -->
+							<!-- <li><a href="#" data-href="#section-contact"><div>Contact</div></a></li> -->
 						</ul>
-
-						<!-- Top Search
-						============================================= -->
-						<div id="top-search">
-							<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-							<form action="search.html" method="get">
-								<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
-							</form>
-						</div><!-- #top-search end -->
 
 					</nav><!-- #primary-menu end -->
 
@@ -86,70 +77,71 @@
 		<section id="content">
 
 			<div class="content-wrap">
-		<div class="center clearfix">
-			<section class="page-section">
-			<div class="col-md-6 col-md-offset-3">
-				<h3>Booking Details</h3>
+				<div class="center clearfix">
+					<section class="page-section">
+					<div class="col-md-6 col-md-offset-3">
+						<h3>Booking Details</h3>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, vel odio non dicta provident sint ex autem mollitia dolorem illum repellat ipsum aliquid illo similique sapiente fugiat minus ratione.</p>
+						<p>Book here to receive services for your automobile.</p>
 
-				<form id="booking-form" name="billing-form" class="nobottommargin" action="/book" method="post">
+						<form id="booking-form" name="billing-form" class="nobottommargin" action="/book" method="post">
 
-					<div class="col_full">
-						<label for="billing-form-name">Name:</label>
-						<input type="text" id="billing-form-name" name="name" value="" class="sm-form-control" required="true"/>
+							<div class="col_full">
+								<label for="billing-form-name">Name:</label>
+								<input type="text" id="billing-form-name" name="name" value="" class="sm-form-control" required="true"/>
+							</div>
+
+							<!-- <div class="col_half col_last">
+								<label for="billing-form-lname">Last Name:</label>
+								<input type="text" id="billing-form-lname" name="billing-form-lname" value="" class="sm-form-control" />
+							</div> -->
+
+							<div class="clear"></div>
+
+							<!-- <div class="col_full">
+								<label for="billing-form-companyname">Company Name:</label>
+								<input type="text" id="billing-form-companyname" name="billing-form-companyname" value="" class="sm-form-control" />
+							</div> -->
+
+							<div class="col_full">
+								<label for="billing-form-address">Address:</label>
+								<input type="text" id="billing-form-address" name="location" value="" class="sm-form-control" />
+							</div>
+
+
+
+							<!-- <div class="col_full">
+								<label for="billing-form-city">City / Town</label>
+								<input type="text" id="billing-form-city" name="billing-form-city" value="" class="sm-form-control" />
+							</div> -->
+
+							<div class="col_half">
+								<label for="billing-form-email">Email Address:</label>
+								<input type="email" id="billing-form-email" name="email" value="" class="sm-form-control" />
+							</div>
+
+							<div class="col_half col_last">
+								<label for="billing-form-phone">Phone:</label>
+								<input type="text" id="billing-form-phone" name="phone" value="" class="sm-form-control" />
+							</div>
+							<div class="col_half">
+								<label for="billing-form-model">Vehicle Model</label>
+								<input type="text" id="billing-form-model" name="vehicle" value="" class="sm-form-control" />
+							</div>
+
+							<div class="col_half col_last">
+								<label for="billing-form-problem">Problem</label>
+								<input type="text" id="billing-form-problem" name="problem" value="" class="sm-form-control" />
+							</div>
+						<div id='bookbutton' class="button button-3d nomargin rightmargin-sm" >Book</div>
+						</form>
+
 					</div>
-
-					<!-- <div class="col_half col_last">
-						<label for="billing-form-lname">Last Name:</label>
-						<input type="text" id="billing-form-lname" name="billing-form-lname" value="" class="sm-form-control" />
-					</div> -->
-
-					<div class="clear"></div>
-
-					<!-- <div class="col_full">
-						<label for="billing-form-companyname">Company Name:</label>
-						<input type="text" id="billing-form-companyname" name="billing-form-companyname" value="" class="sm-form-control" />
-					</div> -->
-
-					<div class="col_full">
-						<label for="billing-form-address">Address:</label>
-						<input type="text" id="billing-form-address" name="location" value="" class="sm-form-control" />
-					</div>
-
-
-
-					<!-- <div class="col_full">
-						<label for="billing-form-city">City / Town</label>
-						<input type="text" id="billing-form-city" name="billing-form-city" value="" class="sm-form-control" />
-					</div> -->
-
-					<div class="col_half">
-						<label for="billing-form-email">Email Address:</label>
-						<input type="email" id="billing-form-email" name="email" value="" class="sm-form-control" />
-					</div>
-
-					<div class="col_half col_last">
-						<label for="billing-form-phone">Phone:</label>
-						<input type="text" id="billing-form-phone" name="phone" value="" class="sm-form-control" />
-					</div>
-					<div class="col_half">
-						<label for="billing-form-model">Vehicle Model</label>
-						<input type="text" id="billing-form-model" name="vehicle" value="" class="sm-form-control" />
-					</div>
-
-					<div class="col_half col_last">
-						<label for="billing-form-problem">Problem</label>
-						<input type="text" id="billing-form-problem" name="problem" value="" class="sm-form-control" />
-					</div>
-				<div id='bookbutton' class="button button-3d nomargin rightmargin-sm" >Subscribe</div>
-				</form>
-
+				</section>
+				</div>
 			</div>
 		</section>
-		</div>
-	</div>
-</section>
+
 		<!-- Footer
 		============================================= -->
 		<footer id="footer" class="dark">
@@ -158,7 +150,7 @@
 
 				<!-- Footer Widgets
 				============================================= -->
-				<div class="footer-widgets-wrap clearfix">
+				<div class="footer-widgets-wrap clearfix" style="display:none">
 
 					<div class="col_two_third">
 
@@ -341,7 +333,7 @@
 								<i class="icon-gplus"></i>
 							</a>
 
-							<a href="#" class="social-icon si-small si-borderless si-pinterest">
+							<!-- <a href="#" class="social-icon si-small si-borderless si-pinterest">
 								<i class="icon-pinterest"></i>
 								<i class="icon-pinterest"></i>
 							</a>
@@ -364,12 +356,12 @@
 							<a href="#" class="social-icon si-small si-borderless si-linkedin">
 								<i class="icon-linkedin"></i>
 								<i class="icon-linkedin"></i>
-							</a>
+							</a> -->
 						</div>
 
 						<div class="clear"></div>
 
-						<i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
+						<i class="icon-envelope2"></i> themegamech@gmail.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91 99 99 994583
 					</div>
 
 				</div>
