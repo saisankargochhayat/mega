@@ -97,7 +97,7 @@
 
 					<div class="col_full">
 						<label for="billing-form-name">Name:</label>
-						<input type="text" id="billing-form-name" name="name" value="" class="sm-form-control" />
+						<input type="text" id="billing-form-name" name="name" value="" class="sm-form-control" required="true"/>
 					</div>
 
 					<!-- <div class="col_half col_last">
@@ -142,7 +142,7 @@
 						<label for="billing-form-problem">Problem</label>
 						<input type="text" id="billing-form-problem" name="problem" value="" class="sm-form-control" />
 					</div>
-        <button id="bookbutton" class="button button-3d nomargin rightmargin-sm">Book Now</button>
+				<div id='bookbutton' class="button button-3d nomargin rightmargin-sm" >Subscribe</div>
 				</form>
 
 			</div>
@@ -397,20 +397,23 @@
 	<script type="text/javascript" src="js/jquery.gmap.js"></script>
 
 	<script type="text/javascript">
-		$('#bookbutton').onclick(function(){
-
+		$('#bookbutton').click(function(){
+			$('#bookbutton').html("Please Wait");
 		$.ajax({
 			  url: "/book",
+				method : "POST",
 			  data:$('#booking-form').serialize()
 			}).done(function() {
-			  console.log("done");
+				window.location.href = "/success";
+			}).error(function() {
+				alert("There was some problem. Please try again later.");
 			});
 		});
 		var getlocation = function(){
 			if (navigator.geolocation) {
 						navigator.geolocation.getCurrentPosition(showPosition);
 				} else {
-						x.innerHTML = "Geolocation is not supported by this browser.";
+						console.log("Geolocation is not supported by this browser.");
 				}
 			function showPosition(position){
 				console.log(position.coords);
