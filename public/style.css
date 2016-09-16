@@ -3836,7 +3836,7 @@ body.device-touch.device-xxs .portfolio-notitle .portfolio-desc { display: none 
 .portfolio.portfolio-full { margin: 0 !important; }
 
 .portfolio-nomargin .portfolio-item,
-.portfolio-full .portfolio-item { padding: 0 !important; }
+.portfolio-full .portfolio-item {}
 
 .portfolio-nomargin .portfolio-desc { padding: 15px 10px 15px; }
 
